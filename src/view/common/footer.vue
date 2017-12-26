@@ -1,8 +1,8 @@
 <template>
 	<section class="footbox">
 		<div class="footer home" @click="goto('/')">门诊</div>
-		<div class="footer mycenter" @click="goto('/mycenter')">医生</div>
-		<div class="footer consult" @click="goto('/consult')">我的</div>
+		<div class="footer mycenter" @click="goto('/doctor')">医生</div>
+		<div class="footer consult" @click="goto('/mycenter')">我的</div>
 	</section>
 </template>
 <script>
@@ -36,20 +36,20 @@
 		.footer{
 			display: box;
 			flex:1;
-			font-size: 12px;
-			padding-top: 34px;
+			font-size: 15px;
+			padding-top: 40px;
 			color: #999999;
 		}
 		.home{
-			@include footerbg('../../../static/images/index.png');
+			@include footerbg('../../../static/images/indexed.png');
 		}
 		.consult{
 			@include footerbg('../../../static/images/consult.png');
 		}
 		.mycenter{
 			@include footerbg('../../../static/images/me.png');
-		}	
+		}
 	}
-	
-	
+
+
 </style>
