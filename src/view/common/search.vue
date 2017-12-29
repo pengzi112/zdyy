@@ -31,15 +31,15 @@
 		};
 		.search_text{
 			float: left;
-			width: 50%;
+			width: 62%;
 			height: 30px;
 			font-size: 15px;
-			text-align: left;
+			text-align: center;
 			margin:10px 0 0 10px;
-			padding:0 40px;
-			border-radius: 12px;
+			padding:0 26px;
+			border-radius: 8px;
 			border: 0;
-			background-color:#005bae;
+			background-color:#3c85ff;
 			opacity: 0.6;
       color: #ffffff;
 		};

@@ -28,10 +28,6 @@
         </div>
       </li>
     </ul>
-    <group>
-      <cell title="我的账户" value="保护中" @click.native="onClick"></cell>
-    </group>
-    <alert v-model="show" title="Congratulations" @on-show="onShow" @on-hide="onHide">'Your Message is sent successfully~'</alert>
     <foot-guide></foot-guide>
   </div>
 </template>
@@ -39,7 +35,7 @@
 <script>
 import homeSearch from '../common/search'
 import footGuide from '../common/footer'
-import { Group, Cell, Alert, Rater } from 'vux'
+import { Rater } from 'vux'
 export default {
   name: 'HelloWorld',
   data () {
@@ -51,34 +47,13 @@ export default {
     }
   },
   components: {
-    Group,
-    Cell,
-    Alert,
     Rater,
     footGuide,
     homeSearch
   },
   methods: {
-    onClick () {
-      this.show = true
-    },
-    onHide () {
-      console.log('on hide')
-    },
     onShow () {
       console.log('on show')
-    },
-    showPlugin () {
-      this.$vux.alert.show({
-        title: 'Vux is Cool',
-        content: 'Do you agree?',
-        onShow () {
-          console.log('Plugin: I\'m showing')
-        },
-        onHide () {
-          console.log('Plugin: I\'m hiding')
-        }
-      })
     }
   }
 }
@@ -92,18 +67,24 @@ export default {
 .homeTop{
   width: 100%;
   height: 50px;
-  background-color: #1e82d2;
+  background-color: #3fa7ff;
   position: fixed;
   top: 0;
   z-index: 999;
 }
 .conditionBox{
   width: 100%;
-  height: 30px;
+  height: 40px;
   display: flex;
   flex-direction:row;
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 8px;
+  padding-top: 6px;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  z-index: 999;
+  background-color: #F5F5F5;
   li{
     display: box;
     flex:1;
@@ -117,6 +98,7 @@ export default {
 .clinicList{
   width:100%;
   font-size: 14px;
+  margin-top: 92px;
   .store_name{
     font-size: 18px;
   }
