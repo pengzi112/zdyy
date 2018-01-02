@@ -100,7 +100,7 @@ export default {
   font-size: 14px;
   margin-top: 92px;
   .store_name{
-    font-size: 18px;
+    font-size: 16px;
   }
   li{
     width:100%;

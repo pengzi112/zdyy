@@ -1,14 +1,15 @@
 <template>
   <div class="home">
-    <div class="homeTop">
-      <home-search></home-search>
+    <div class="headBox">
+      <div class="head_img">
+        <img src="static/images/test2.jpg">
+        <div class="userName">朋子</div>
+      </div>
     </div>
-    <h1>{{ msg }}</h1>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">这是什么？</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
+    <ul class="menuBox">
+      <li><a href="http://router.vuejs.org/" target="_blank">我的订单</a></li>
+      <li><a href="http://vuex.vuejs.org/" target="_blank">评论</a></li>
+      <li class="no_border"><a href="http://vue-loader.vuejs.org/" target="_blank">关注</a></li>
     </ul>
     <group>
       <cell title="我的账户" value="保护中" @click.native="onClick"></cell>
@@ -22,7 +23,6 @@
 </template>
 
 <script>
-  import homeSearch from '../common/search'
   import footGuide from '../common/footer'
   import { Group, Cell, Alert } from 'vux'
   export default {
@@ -37,8 +37,7 @@
       Group,
       Cell,
       Alert,
-      footGuide,
-      homeSearch
+      footGuide
     },
     methods: {
       onClick () {
@@ -68,26 +67,50 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .homeTop{
+  @import './static/css/mixin.scss';
+  .headBox{
     width: 100%;
-    height: 50px;
-    background-color: #1e82d2;
-    position: fixed;
-    top: 0;
-    z-index: 999;
+    height: 120px;
+    @include bis('../../assets/img/center2.jpg');
+    background-color: green;
+    .head_img{
+      width: 100px;
+      height: 120px;
+      margin: auto;
+      padding-top: 20px;
+      img{
+        display: block;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        -webkit-border-radius:60px;
+        -moz-border-radius:60px;
+        border-radius: 60px;
+        border: 2px solid #ffffff;
+      };
+      .userName{
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 16px;
+        color: #ffffff;
+      }
+    };
   }
-  h1, h2 {
-    font-weight: normal;
-  }
+  .menuBox{
+    display: flex;
+    padding: 12px 0;
+    li{
+      flex: 1;
+      border-right: 1px solid #999999;
+    };
+    .no_border{
+      border: 0;
+    }
+  };
   ul {
     list-style-type: none;
     padding: 0;
-  }
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  a {
-    color: #42b983;
   }
 </style>

@@ -66,11 +66,10 @@ $fc:#fff;
 @mixin fj($type: space-between){
     display: flex;
     justify-content: $type;
-
 }
 
 //footer 底部背景图
 @mixin footerbg($url){
-    background: url($url) no-repeat center 10px;
-    background-size: 16% auto;
+    background: url($url) no-repeat center 4px;
+    background-size: 14% auto;
 }

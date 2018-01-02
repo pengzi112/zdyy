@@ -58,8 +58,8 @@
 		.footer{
 			display: box;
 			flex:1;
-			font-size: 15px;
-			padding-top: 40px;
+			font-size: 12px;
+			padding-top: 26px;
 			color: #999999;
 		}
 		.home{
@@ -67,18 +67,21 @@
 		}
 		.homed{
 			@include footerbg('../../../static/images/indexed.png');
+			color: #3fa7ff;
 		}
 		.consult{
 			@include footerbg('../../../static/images/consult.png');
 		}
 		.consulted{
 			@include footerbg('../../../static/images/consulted.png');
+			color: #3fa7ff;
 		}
 		.mycenter{
 			@include footerbg('../../../static/images/me.png');
 		}
 		.mycenterd{
 			@include footerbg('../../../static/images/meed.png');
+			color: #3fa7ff;
 		}
 	}
 
