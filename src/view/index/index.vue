@@ -11,7 +11,7 @@
     </ul>
     <ul class="clinicList">
       <li v-for="(item, index) in tableData">
-        <div class="clinic_top">
+        <div class="clinic_top" @click="toClinic">
           <div class="clinic_left"><img src="static/images/talkdetail.jpg"/></div>
           <ul class="clinic_right">
             <li class="store_name">众合齿科（中关村店）</li>
@@ -54,6 +54,9 @@ export default {
   methods: {
     onShow () {
       console.log('on show')
+    },
+    toClinic () {
+      this.$router.push({path: '/clinic'})
     }
   }
 }
