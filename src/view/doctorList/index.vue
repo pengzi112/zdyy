@@ -1,41 +1,36 @@
 <template>
   <div class="home">
-    <div class="homeTop">附近医生</div>
-    <!-- <ul class="conditionBox">
-      <li>全部地区  v</li>
-      <li>全部项目  v</li>
-      <li>智能推荐  v</li>
-      <li>筛选  v</li>
-    </ul> -->
+    <div class="homeTop">
+      <span class="arrowleft" @click="goBack"><img src="/static/images/arrowleft.png"></span>
+      医生列表
+    </div>
     <ul class="clinicList">
       <li v-for="(item, index) in tableData" @click="toDetail">
         <div class="clinic_top">
           <div class="clinic_left"><img src="static/images/doctor.jpeg"/></div>
           <ul class="clinic_right">
             <li class="store_name">李医生</li>
-            <li class="distance">合众智齿（中关村店）<span>7.2km</span></li>
+            <li class="distance">合众智齿（中关村店)</li>
             <li class="doctorDetail">
               <span class="position">副主任医师</span>
               <rater v-model="star" :font-size="16" disabled></rater>
               <span class="price">335条</span>
             </li>
-            <li><span class="type">烤瓷牙</span><span class="type">蛀牙</span><span class="type">烤瓷牙</span></li>
+            <li class="beGood"><span class="type">烤瓷牙</span><span class="type">蛀牙</span><span class="type">烤瓷牙</span></li>
           </ul>
         </div>
-        <div class="clinic_bottom">
+        <!-- <div class="clinic_bottom">
           <ul>
             <li>优惠券  满100减99</li>
             <li>购物券 【正畸】9.9元隐形牙齿矫正</li>
           </ul>
-        </div>
+        </div> -->
       </li>
     </ul>
-    <foot-guide></foot-guide>
   </div>
 </template>
 
 <script>
-import footGuide from '../common/footer'
 import { Rater } from 'vux'
 export default {
   name: 'HelloWorld',
@@ -48,8 +43,7 @@ export default {
     }
   },
   components: {
-    Rater,
-    footGuide
+    Rater
   },
   methods: {
     onShow () {
@@ -57,6 +51,9 @@ export default {
     },
     toDetail () {
       this.$router.push({path: '/doctorDetail'})
+    },
+    goBack () {
+      this.$router.go(-1)
     }
   }
 }
@@ -64,9 +61,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-  .home{
-    padding-bottom: 70px;
-  }
+.home{
+  padding: 50px 0;
+}
 .homeTop{
   width: 100%;
   height: 50px;
@@ -77,40 +74,24 @@ export default {
   position: fixed;
   top: 0;
   z-index: 999;
-}
-/* .conditionBox{
-  width: 100%;
-  height: 42px;
-  display: flex;
-  flex-direction:row;
-  border-bottom: 1px solid #e6e6e6;
-  padding-bottom: 8px;
-  padding-top: 6px;
-  position: fixed;
-  top: 50px;
-  left: 0;
-  z-index: 999;
-  background-color: #F5F5F5;
-  li{
-    display: box;
-    flex:1;
-    height: 30px;
-    line-height: 30px;
-    font-size: 15px;
-    color: #666666;
-    border-right: 1px solid #e6e6e6;
+  .arrowleft{
+    padding: 0 16px;
+    position: absolute;
+    left: 0;
+    top: center;
+    img{
+      width: 10px;
+    }
   }
-} */
+}
 .clinicList{
   width:100%;
   font-size: 14px;
-  margin-top: 52px;
   .store_name{
     font-size: 16px;
   }
   li{
     width:100%;
-    margin-bottom: 8px;
     background-color: #ffffff;
     .clinic_top{
       overflow: hidden;
@@ -121,11 +102,11 @@ export default {
         float: left;
         img{
           display: block;
-          width: 100px;
-          height: 100px;
-          -webkit-border-radius:100px;
-          -moz-border-radius:100px;
-          border-radius: 100px;
+          width: 80px;
+          height: 80px;
+          -webkit-border-radius:80px;
+          -moz-border-radius:80px;
+          border-radius: 80px;
         }
       };
       .clinic_right{
@@ -149,6 +130,9 @@ export default {
         .doctorDetail{
           text-align: right;
         };
+        .beGood{
+          margin-top: 10px;
+        };
         .distance{
           span{
             float: right;
@@ -156,7 +140,7 @@ export default {
         }
       }
     }
-    .clinic_bottom{
+    /* .clinic_bottom{
       padding: 0 8px;
       ul{
         padding: 8px 0;
@@ -164,7 +148,7 @@ export default {
           text-align: left;
         }
       }
-    }
+    } */
   }
 }
 h1, h2 {

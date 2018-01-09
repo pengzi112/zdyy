@@ -3,12 +3,12 @@
     <div class="homeTop">
       <home-search></home-search>
     </div>
-    <ul class="conditionBox">
+    <!-- <ul class="conditionBox">
       <li>全部地区  v</li>
       <li>全部项目  v</li>
       <li>智能推荐  v</li>
       <li>筛选  v</li>
-    </ul>
+    </ul> -->
     <ul class="clinicList">
       <li v-for="(item, index) in tableData">
         <div class="clinic_top" @click="toClinic">
@@ -75,7 +75,7 @@ export default {
   top: 0;
   z-index: 999;
 }
-.conditionBox{
+/* .conditionBox{
   width: 100%;
   height: 40px;
   display: flex;
@@ -97,11 +97,11 @@ export default {
     color: #666666;
     border-right: 1px solid #e6e6e6;
   }
-}
+} */
 .clinicList{
   width:100%;
   font-size: 14px;
-  margin-top: 92px;
+  margin-top: 52px;
   .store_name{
     font-size: 16px;
   }

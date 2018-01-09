@@ -2,11 +2,15 @@
   <div class="home">
     <div class="homeTop">
       <span class="arrowleft" @click="goBack"><img src="/static/images/arrowleft.png"></span>
-      <span>详情</span>
+      <span>医生详情</span>
     </div>
-    <section class="slideBox">
-      <home-banner></home-banner>
-      <div class="clinic-title">合众智齿（中关村店）</div>
+    <section class="headBox">
+      <div class="head_img">
+        <img src="static/images/test2.jpg">
+        <div class="userName">朋子</div>
+        <div class="userAddress">北京悦丽汇三里屯诊所</div>
+        <div class="userFocus">+ 关注</div>
+      </div>
     </section>
     <section class="detailBox">
       <div class="evaluationBox">
@@ -30,22 +34,6 @@
         </ul>
       </div>
     </section>
-    <section class="doctorList-box">
-      <div class="doctorList-title">医生资源</div>
-      <ul class="clinicList">
-        <li v-for="(item, index) in tableData" @click="toDetail">
-          <div class="clinic_top">
-            <div class="clinic_left"><img src="static/images/talkdetail.jpg"/></div>
-            <ul class="clinic_right">
-              <li class="store_name"><span>李医生</span><rater v-model="star" :font-size="16" disabled></rater></li>
-              <li class="distance">副主任医师</li>
-              <li>合众齿科明星医师，主治：拔牙、牙齿矫正</li>
-            </ul>
-          </div>
-        </li>
-      </ul>
-      <div class="doctorList-more" @click="doctorMore">查看全部医生</div>
-    </section>
     <section class="doctorList-box discoutBox">
       <div class="doctorList-title">优惠预定</div>
       <ul class="clinicList">
@@ -65,38 +53,50 @@
       </ul>
       <div class="doctorList-more">查看全部15个</div>
     </section>
+    <section class="doctorList-box professionalBox">
+      <div class="doctorList-title">专业擅长</div>
+      <div class="proferTab">
+        <span v-for="(item, index) in tableData">拔牙</span>
+      </div>
+    </section>
+    <section class="doctorList-box introduce">
+      <div class="doctorList-title">医生简介</div>
+      <div class="content" v-if="isfold">{{doctorMsg}}</div>
+      <div class="contentAll" v-if="!isfold">{{doctorMsg}}</div>
+      <div class="contentMore" @click="lookMorecontent" v-if="isfold">展开全文</div>
+    </section>
   </div>
 </template>
 
 <script>
-import homeBanner from '../common/banner'
 import { Rater } from 'vux'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
+      isfold: true,
       show: false,
       star: 3,
-      tableData: [1, 2, 3]
+      tableData: [1, 2, 3],
+      doctorMsg: '2002年毕业于中国协和医科大学；一直在内科从事临床工作，完成了内科各专科病房、急诊、重症监护室的轮转；2007年任内科总住院医师；2007被聘为北京协和医内科主治医师；2008年赴美国约翰.霍普金斯大学医学院、老年医学中心进修老年医学、为期半年。回国后一直在老年病房从事老年医学临床、教学及科研工作。参与并负责北京市科委及米尔斯汀.亚美基金的多项科研项目的研究。主编：《北京协和医院老年医学诊疗常规》、《老年医学速查手册》，参与翻译《现代老年医学概要》、参与编写《老年医学进展2013》、《新概念老年医学》等多部老年医学书籍兼职：北京医学会老年医学分会青年委员会学术秘书，中华医学会老年医学分会流行病学组委员，《中国实用内科杂志》青年编委,中国老年保健医学研究会缓和医学分会委员兼学术秘书，北京医师协会老年医学分会理事。'
     }
   },
   components: {
-    Rater,
-    homeBanner
+    Rater
   },
   methods: {
     onShow () {
       console.log('on show')
     },
     goBack () {
-      this.$router.push({path: '/'})
+      this.$router.go(-1)
     },
     doctorMore () {
       this.$router.push({path: '/doctorList'})
     },
-    toDetail () {
-      this.$router.push({path: '/doctorDetail'})
+    lookMorecontent () {
+      this.isfold = false
     }
   }
 }
@@ -104,6 +104,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+@import './static/css/mixin.scss';
 .home{
   padding-bottom: 70px;
 }
@@ -126,23 +127,49 @@ export default {
     color: #ffffff;
   }
 }
-.slideBox{
+.headBox{
   width: 100%;
-  position: relative;
-  .clinic-title{
-    position: absolute;
-    left: 0;
-    bottom: 0;
+  height: 180px;
+  @include bis('../../assets/img/doctorBg.png');
+  background-color: green;
+  .head_img{
     width: 100%;
-    height: 40px;
-    line-height: 40px;
-    background: rgba(0,0,0,0.3);
-    color: #ffffff;
-    z-index: 999;
-    font-size: 14px;
-    text-align: left;
-    text-indent: 10px;
-  }
+    height: 180px;
+    margin: auto;
+    padding-top: 20px;
+    img{
+      display: block;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      -webkit-border-radius:60px;
+      -moz-border-radius:60px;
+      border-radius: 60px;
+      border: 2px solid #ffffff;
+    };
+    .userName{
+      width: 100%;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 16px;
+      color: #ffffff;
+    };
+    .userAddress{
+      width: 100%;
+      font-size: 14px;
+      color: #ffffff;
+    };
+    .userFocus{
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 14px;
+      color: #ffffff;
+      background: rgba(255,255,255, 0.2);
+      border-radius: 4px;
+      margin-top: 8px;
+    }
+  };
 }
 /* 门诊详细信息 */
 .detailBox{
@@ -214,7 +241,7 @@ export default {
     }
   }
 }
-/* 医生列表 */
+/* 优惠列表 */
 .doctorList-box{
   padding: 0 10px;
   background-color: #ffffff;
@@ -224,8 +251,6 @@ export default {
     line-height: 40px;
     font-size: 16px;
     text-align: left;
-    background: url(/static/images/arrowright.png) no-repeat right center;
-    background-size: auto 30%;
   }
   .clinicList{
     width:100%;
@@ -296,6 +321,45 @@ export default {
     line-height: 40px;
     font-size: 14px;
     color: #eb818f;
+  }
+}
+.professionalBox{
+  margin-top: 20px;
+  .proferTab{
+    padding-bottom: 10px;
+    text-align: left;
+    span{
+      font-size: 14px;
+      padding: 2px 12px;
+      background-color: #e6e6e6;
+      color: #333333;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+  }
+}
+.introduce{
+  margin-top: 20px;
+  .content{
+    text-align: left;
+    font-size: 14px;
+    color: #999999;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  };
+  .contentAll{
+    text-align: left;
+    font-size: 14px;
+    color: #999999;
+    padding-bottom: 10px;
+  };
+  .contentMore{
+    font-size: 14px;
+    text-align: left;
+    color: #eb818f;
+    padding-bottom: 10px;
   }
 }
 .discoutBox{
