@@ -1,23 +1,32 @@
 <template>
 	<div class="searchBox">
-		<div class="address">北京</div>
+		<div class="address" @click="selectCity">北京</div>
 		<div class="textBox">
 			<input type="text" class="search_text" name="search" placeholder="搜索项目/诊所/医生">
 			<div class="searchBtn"></div>
 			<div class="searchDelbtn" @click="searchDel"></div>
 		</div>
+		<toast v-model="showTips" width="10em" type="text" :time="800" position="middle">暂只支持北京地区</toast>
 	</div>
 </template>
 <script>
+	import { Toast } from 'vux'
 	export default{
+	  components: {
+	    Toast
+	  },
 	  data () {
 	    return {
-	      address: '北京'
+	      address: '北京',
+	      showTips: false
 	    }
 	  },
 	  methods: {
 	    searchDel () {
 	      console.log('ok')
+	    },
+	    selectCity () {
+	      this.showTips = true
 	    }
 	  }
 	}
@@ -33,7 +42,7 @@
 			height: 30px;
 			line-height: 30px;
 			float: left;
-			font-size: 16px;
+			font-size: 14px;
 			color: #ffffff;
 			margin-left: 15px;
 			padding-right: 20px;
@@ -64,7 +73,7 @@
 			};
 			.search_text{
 				height: 30px;
-				font-size: 15px;
+				font-size: 14px;
 				text-align: center;
 				margin-left:10px;
 				padding:0 20px;

@@ -28,6 +28,9 @@ const webpackConfig = {
       '@': resolve('src'),
     }
   },
+  externals: {
+    'AMap': 'window.AMap'
+  },
   module: {
     rules: [
       ...(config.dev.useEslint? [{

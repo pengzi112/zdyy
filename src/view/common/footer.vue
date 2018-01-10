@@ -2,8 +2,8 @@
 	<section class="footbox">
 		<div class="footer home" @click="goto('/')" v-if="!isIndex">门诊</div>
 		<div class="footer homed" @click="goto('/')" v-if="isIndex">门诊</div>
-		<div class="footer mycenter" @click="goto('/doctor')" v-if="!isDoctor">医生</div>
-		<div class="footer mycenterd" @click="goto('/doctor')" v-if="isDoctor">医生</div>
+		<div class="footer doctor" @click="goto('/doctor')" v-if="!isDoctor">医生</div>
+		<div class="footer doctored" @click="goto('/doctor')" v-if="isDoctor">医生</div>
 		<div class="footer consult" @click="goto('/mycenter')" v-if="!isMe">我的</div>
 		<div class="footer consulted" @click="goto('/mycenter')" v-if="isMe">我的</div>
 	</section>
@@ -70,17 +70,17 @@
 			color: #3fa7ff;
 		}
 		.consult{
-			@include footerbg('../../../static/images/consult.png');
+			@include footerbg('../../../static/images/my.png');
 		}
 		.consulted{
-			@include footerbg('../../../static/images/consulted.png');
+			@include footerbg('../../../static/images/myed.png');
 			color: #3fa7ff;
 		}
-		.mycenter{
-			@include footerbg('../../../static/images/me.png');
+		.doctor{
+			@include footerbg('../../../static/images/doctor.png');
 		}
-		.mycenterd{
-			@include footerbg('../../../static/images/meed.png');
+		.doctored{
+			@include footerbg('../../../static/images/doctored.png');
 			color: #3fa7ff;
 		}
 	}

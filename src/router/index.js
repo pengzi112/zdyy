@@ -6,6 +6,7 @@ import doctorList from '@/view/doctorList/index'
 import doctorDetail from '@/view/doctorDetail/index'
 import mycenter from '@/view/mycenter/mycenter'
 import clinic from '@/view/clinic/index'
+import map from '@/view/map/index'
 Vue.use(Router)
 
 export default new Router({
@@ -39,6 +40,11 @@ export default new Router({
       path: '/mycenter',
       name: 'mycenter',
       component: mycenter
+    },
+    {
+      path: '/map',
+      name: 'map',
+      component: map
     }
   ]
 })

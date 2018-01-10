@@ -18,14 +18,14 @@
         </ul>
         <ul class="address">
           <li class="address-icon"><img src="static/images/address.png"></li>
-          <li class="address-text">北京市海淀区新中关购物中心3层5669科室</li>
+          <li class="address-text" @click="toMap">北京市海淀区新中关购物中心3层5669科室</li>
           <li class="address-other">
-            <img src="static/images/address.png">
-            <img src="static/images/address.png">
+            <img class="msg" src="static/images/msg.png">
+            <a href="tel:18301402355"><img class="phone" src="static/images/phone.png"></a>
           </li>
         </ul>
         <ul class="clinicTime">
-          <li class="address-icon"><img src="static/images/address.png"></li>
+          <li class="address-icon"><img src="static/images/time.png"></li>
           <li class="clinicTime-text">门诊：周一至周日/8:00-17:00</li>
         </ul>
       </div>
@@ -97,6 +97,9 @@ export default {
     },
     toDetail () {
       this.$router.push({path: '/doctorDetail'})
+    },
+    toMap () {
+      this.$router.push({path: '/map'})
     }
   }
 }
@@ -182,7 +185,7 @@ export default {
         width: 10%;
         text-align: center;
         img{
-          width: 70%;
+          width: 60%;
           margin: auto;
         };
       };
@@ -196,6 +199,9 @@ export default {
         img{
           width: 30%;
           margin: 0 4px;
+        };
+        .msg{
+          margin-right: 10px;
         }
       }
     };
@@ -207,7 +213,7 @@ export default {
         width: 10%;
         text-align: center;
         img{
-          width: 70%;
+          width: 52%;
           margin: auto;
         }
       }

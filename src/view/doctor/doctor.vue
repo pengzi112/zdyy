@@ -103,10 +103,10 @@ export default {
 } */
 .clinicList{
   width:100%;
-  font-size: 14px;
+  font-size: 12px;
   margin-top: 52px;
   .store_name{
-    font-size: 16px;
+    font-size: 14px;
   }
   li{
     width:100%;

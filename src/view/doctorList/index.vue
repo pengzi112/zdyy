@@ -86,7 +86,7 @@ export default {
 }
 .clinicList{
   width:100%;
-  font-size: 14px;
+  font-size: 12px;
   .store_name{
     font-size: 16px;
   }
@@ -98,7 +98,7 @@ export default {
       border-bottom: 1px solid #e6e6e6;
       padding: 12px 8px 8px;
       .clinic_left{
-        width: 36%;
+        width: 26%;
         float: left;
         img{
           display: block;
@@ -110,17 +110,18 @@ export default {
         }
       };
       .clinic_right{
-        width: 64%;
+        width: 72%;
         float: right;
         li{
           text-align: left;
           .position{
-            font-size: 14px;
+            font-size: 12px;
             float: left;
-          }
+          };
           .price{
             float: right;
             margin-left: 10px;
+            margin: 0 10px 0 20px;
           };
           .type{
             padding: 4px 6px;
@@ -134,10 +135,8 @@ export default {
           margin-top: 10px;
         };
         .distance{
-          span{
-            float: right;
-          }
-        }
+          font-size: 14px;
+        };
       }
     }
     /* .clinic_bottom{
